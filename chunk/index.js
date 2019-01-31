@@ -10,13 +10,10 @@
 
 function chunk(array,size){
   var chunked = [];
-  for(let num of array){
-    const last = chunked[chunked.length - 1];
-    if(!last || last.length === size){
-      chunked.push([num]);
-    }else{
-      last.push(num);
-    }
+  var index = 0;
+  while(index < array.length){
+    chunked.push(array.slice(index,index+size));
+    index += size;
   }
   return chunked;
 }
@@ -46,4 +43,18 @@ module.exports = chunk;
 //
 //   })
 //   return newArr;
+// }
+
+
+// function chunk(array,size){
+//   var chunked = [];
+//   for(let num of array){
+//     const last = chunked[chunked.length - 1];
+//     if(!last || last.length === size){
+//       chunked.push([num]);
+//     }else{
+//       last.push(num);
+//     }
+//   }
+//   return chunked;
 // }
